@@ -567,7 +567,7 @@ const App = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">My Life in Pictures</h2>
+            <h2 className="text-4xl font-bold mb-4">My Life</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-800 mx-auto"></div>
             <p className="text-gray-700 mt-6 max-w-2xl mx-auto">
               A collection of moments from my life, showcasing some of my hobbies, travels, and personal projects.
