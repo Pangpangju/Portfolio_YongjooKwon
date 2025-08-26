@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Menu, X, Code, Trophy, Camera } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import './index.css'
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,8 +11,8 @@ const App = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Updated sections array to include 'research' and reorder
-      const sections = ['home', 'research', 'projects', 'skills', 'awards', 'mylife', 'contact'];
+      // Updated sections array to change the order
+      const sections = ['home', 'research', 'projects', 'awards', 'mylife', 'skills', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -160,10 +159,9 @@ const App = () => {
     { src: "https://placehold.co/400x300/93c5fd/1e40af?text=Work", size: 'col-span-2 row-span-1' },
     { src: "https://placehold.co/400x500/dbeafe/1e3a8a?text=Family", size: 'col-span-1 row-span-2' },
     { src: "https://placehold.co/500x300/bfdbfe/2563eb?text=Pets", size: 'col-span-2 row-span-1' },
-    { src: "https://placehold.co/400x400/e0e7ff/3f3f46?text=Nature", size: 'col-span-2 row-span-1' },
     { src: "https://placehold.co/600x400/c4b5fd/6d28d9?text=Projects", size: 'col-span-2 row-span-1' },
     { src: "https://placehold.co/300x300/fecaca/991b1b?text=Food", size: 'col-span-1 row-span-1' },
-    { src: "https://placehold.co/400x400/fef2f2/991b1b?text=Gaming", size: 'col-span-1 row-span-1' },
+    { src: "https://placehold.co/400x400/fef2f2/991b1b?text=Gaming", size: 'col-span-2 row-span-1' },
   ];
 
   return (
@@ -204,11 +202,11 @@ const App = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
               {/* Updated navigation links */}
-              {['home', 'research', 'projects', 'skills', 'awards', 'mylife', 'contact'].map((item) => (
+              {['home', 'research', 'projects', 'awards', 'mylife', 'skills', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className={`capitalize hover:text-blue-600 transition-colors font-medium ${
+                  className={`capitalize hover:text-blue-600 transition-colors text-lg font-semibold ${
                     activeSection === item ? 'text-blue-600' : 'text-gray-600'
                   }`}
                 >
@@ -235,11 +233,11 @@ const App = () => {
               animate={{ opacity: 1, y: 0 }}
               className="md:hidden py-4 border-t border-gray-200"
             >
-              {['home', 'research', 'projects', 'skills', 'awards', 'mylife', 'contact'].map((item) => (
+              {['home', 'research', 'projects', 'awards', 'mylife', 'skills', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className="block w-full text-left py-2 capitalize hover:text-blue-600 transition-colors font-medium"
+                  className="block w-full text-left py-2 capitalize hover:text-blue-600 transition-colors text-lg font-semibold"
                 >
                   {item}
                 </button>
@@ -262,8 +260,9 @@ const App = () => {
       transition={{ duration: 0.8 }}
       className="flex-shrink-0 mb-12 md:mb-0"
     >
+      {/* Updated to a more realistic placeholder to represent a real photo */}
       <img
-        src="https://placehold.co/256x320/1a1a1a/ffffff?text=YJK"
+        src="/images/profile-picture.jpg"
         alt="Profile"
         className="rounded-2xl w-80 h-96 sm:w-96 sm:h-[28rem] lg:w-[26rem] lg:h-[32rem] mx-auto md:mx-0 shadow-2xl object-cover"
       />
@@ -471,49 +470,6 @@ const App = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold mb-4">Skills & Expertise</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-800 mx-auto"></div>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gray-200/50 backdrop-blur-sm p-6 rounded-2xl hover:transform hover:scale-105 transition-all duration-300 border border-gray-300/50"
-              >
-                <div className="flex justify-between items-center mb-3">
-                  <h3 className="text-lg font-bold">{skill.name}</h3>
-                  <span className="text-blue-600 font-semibold">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-gray-300/50 rounded-full h-2">
-                  <motion.div
-                    className="bg-gradient-to-r from-blue-600 to-purple-800 h-2 rounded-full"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  ></motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Awards Section */}
       <section id="awards" className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -593,6 +549,49 @@ const App = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4 text-white">
                   <Camera className="w-6 h-6 mr-2" />
                   <span className="font-semibold text-lg">{image.src.split('?text=')[1]}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-20 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">Skills & Expertise</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-800 mx-auto"></div>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-gray-200/50 backdrop-blur-sm p-6 rounded-2xl hover:transform hover:scale-105 transition-all duration-300 border border-gray-300/50"
+              >
+                <div className="flex justify-between items-center mb-3">
+                  <h3 className="text-lg font-bold">{skill.name}</h3>
+                  <span className="text-blue-600 font-semibold">{skill.level}%</span>
+                </div>
+                <div className="w-full bg-gray-300/50 rounded-full h-2">
+                  <motion.div
+                    className="bg-gradient-to-r from-blue-600 to-purple-800 h-2 rounded-full"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${skill.level}%` }}
+                    transition={{ duration: 1, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  ></motion.div>
                 </div>
               </motion.div>
             ))}
@@ -695,3 +694,4 @@ const App = () => {
 };
 
 export default App;
+
