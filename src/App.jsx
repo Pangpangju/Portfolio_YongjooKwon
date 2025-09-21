@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Menu, X, Code, Trophy, Camera } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Menu, X, Code, Trophy, Camera, FileText } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const App = () => {
@@ -72,21 +72,19 @@ const App = () => {
   const research = [
     {
       id: 1,
-      title: "Outstanding Research Award",
+      title: "A Research on High School Students' Recognition of Using AI-Based Student Assessment Tools",
       description: "Recognized for groundbreaking research in real-time rendering optimization",
       technologies: ["Rendering", "Optimization", "GPU", "C++"],
-      image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Research+Paper",
-      github: "#",
-      live: "#"
+      image: "/images/highSchool.png",
+      paperUrl: "paper/HighShool.pdf"
     },
     {
       id: 2,
-      title: "Outstanding Research Award",
+      title: "Enabling Computer Education through Gaming Factors : A Case Study on Improving Learning Efficiency",
       description: "Recognized for groundbreaking research in real-time rendering optimization",
       technologies: ["Rendering", "Optimization", "GPU", "C++"],
-      image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Research+Paper",
-      github: "#",
-      live: "#"
+      image: "images/gamification.png",
+      paperUrl: "paper/Gamification.pdf"
     },
     {
       id: 3,
@@ -94,8 +92,7 @@ const App = () => {
       description: "Recognized for groundbreaking research in real-time rendering optimization",
       technologies: ["Rendering", "Optimization", "GPU", "C++"],
       image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Research+Paper",
-      github: "#",
-      live: "#"
+      paperUrl: "#"
     }
   ];
 
@@ -369,29 +366,16 @@ const App = () => {
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-gray-700 mb-4 text-sm">{item.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {item.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="bg-gray-300/50 text-gray-700 px-2 py-1 rounded text-xs"
-                      >
-                        {tech}
-                      </span>
-                    ))}
                   </div>
                   <div className="flex gap-4">
                     <a
-                      href={item.github}
+                      href={item.paperUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors"
                     >
-                      <Github className="w-4 h-4" />
+                      <FileText className="w-4 h-4" />
                       Paper
-                    </a>
-                    <a
-                      href={item.live}
-                      className="flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Demo
                     </a>
                   </div>
                 </div>
