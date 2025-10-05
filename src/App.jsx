@@ -1,17 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
+// MODIFIED: Added AnimatePresence for modal animations
 import { Github, Linkedin, Mail, ExternalLink, Menu, X, Code, Trophy, Camera, FileText } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  // NEW: State to manage the selected image for the modal
+  const [selectedImage, setSelectedImage] = useState(null);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 
   useEffect(() => {
     const handleScroll = () => {
-      // Updated sections array to change the order
       const sections = ['home', 'research', 'projects', 'awards', 'mylife', 'skills', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
@@ -42,27 +44,36 @@ const App = () => {
   const projects = [
     {
       id: 1,
-      title: "Metaverse Platform",
-      description: "Immersive virtual reality experience built with Unreal Engine 5, featuring realistic physics and interactive environments.",
-      technologies: ["Unreal Engine", "C++", "Blueprints", "Oculus Rift"],
+      title: "Aura",
+      description: "Mobile application that renders 3D visual graphics from user-input data, visualizing complex datasets.",
+      technologies: ["Python", "C++", "Socket Networking", "Oculus Rift"],
       image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Metaverse+Platform",
       github: "#",
       live: "#"
     },
     {
       id: 2,
-      title: "AI Game Assistant",
-      description: "Machine learning platform for predictive analytics using Python and TensorFlow, deployed on cloud infrastructure.",
-      technologies: ["Python", "TensorFlow", "FastAPI", "AWS"],
+      title: "This is Home Now",
+      description: "3D open-world zombie survival game, architecting a rendering pipeline optimized for displaying massive-scale environments.",
+      technologies: ["Unity", "C#"],
       image: "https://placehold.co/600x400/1a1a1a/ffffff?text=AI+Assistant",
       github: "#",
       live: "#"
     },
     {
       id: 3,
-      title: "Mobile AR Shopping",
+      title: "Motion Matching using Unity",
       description: "Augmented reality application for iOS and Android that overlays digital information onto the real world.",
-      technologies: ["Unity", "C#", "ARKit", "ARCore"],
+      technologies: ["Unity", "C#", "Python", "OpenGL", "C++"],
+      image: "https://placehold.co/600x400/1a1a1a/ffffff?text=AR+Shopping",
+      github: "#",
+      live: "#"
+    },
+    {
+      id: 4,
+      title: "Rhythm Battle",
+      description: "2-Player Multiplayer Rhythmgame made with Photon integration",
+      technologies: ["Unity", "C#", "Photon"],
       image: "https://placehold.co/600x400/1a1a1a/ffffff?text=AR+Shopping",
       github: "#",
       live: "#"
@@ -108,21 +119,27 @@ const App = () => {
   const awards = [
     {
       id: 1,
-      title: "Academic Excellence Scholarship",
-      organization: "Seoul National University",
-      year: "2023-2024",
+      title: "College of Software Dean's Award",
+      organization: "SKKU University",
+      year: "2020",
       description: "Merit-based scholarship for maintaining top GPA in graduate program"
     },
     {
       id: 2,
-      title: "Game Development Competition Winner",
-      organization: "Asia Pacific Game Jam",
-      year: "2023",
-      description: "First place in university-level game development competition"
+      title: "3rd Prize, SKKU AI Hackathon",
+      organization: "SKKU University",
+      year: "2021",
+      description: "Awarded out of 25 teams for creating an accessibility software that dynamically adjusts colors in digital textbook content, making images and graphs clear for colorblind students"
+    },
+    {
+      id: 3,
+      title: "Grand Prize, SKKU Capstone Design",
+      organization: "SKKU University",
+      year: "2024",
+      description: "Awarded 1st place out of 58 participants by introducing an optimized-mass-rendering system in real-time 3D environment"
     }
   ];
 
-  // Floating particles component
   const FloatingParticles = () => {
     const particles = Array.from({ length: 50 }, (_, i) => (
       <motion.div
@@ -148,17 +165,18 @@ const App = () => {
     return <div className="fixed inset-0 pointer-events-none z-0">{particles}</div>;
   };
   
-  // The images for the collage have been updated to create a more complete layout
   const myLifeImages = [
-    { src: "https://placehold.co/600x450/e9d5ff/6d28d9?text=Travel", size: 'col-span-2 row-span-2' },
-    { src: "https://placehold.co/400x400/c7d2fe/3730a3?text=Friends", size: 'col-span-1 row-span-1' },
-    { src: "https://placehold.co/400x600/a5b4fc/4338ca?text=Hobbies", size: 'col-span-1 row-span-2' },
-    { src: "https://placehold.co/400x300/93c5fd/1e40af?text=Work", size: 'col-span-2 row-span-1' },
-    { src: "https://placehold.co/400x500/dbeafe/1e3a8a?text=Family", size: 'col-span-1 row-span-2' },
-    { src: "https://placehold.co/500x300/bfdbfe/2563eb?text=Pets", size: 'col-span-2 row-span-1' },
-    { src: "https://placehold.co/600x400/c4b5fd/6d28d9?text=Projects", size: 'col-span-2 row-span-1' },
-    { src: "https://placehold.co/300x300/fecaca/991b1b?text=Food", size: 'col-span-1 row-span-1' },
-    { src: "https://placehold.co/400x400/fef2f2/991b1b?text=Gaming", size: 'col-span-2 row-span-1' },
+    { src: "/images/l_1.jpg", size: 'col-span-2 row-span-2' },
+    { src: "/images/l_2.jpg", size: 'col-span-1 row-span-1' },
+    { src: "/images/l_3.jpg", size: 'col-span-1 row-span-2' },
+    { src: "/images/l_4.jpg", size: 'col-span-2 row-span-1' },
+    { src: "/images/l_5.jpg", size: 'col-span-1 row-span-2' },
+    { src: "/images/l_6.jpg", size: 'col-span-2 row-span-1' },
+    { src: "/images/l_7.jpg", size: 'col-span-2 row-span-1' },
+    { src: "/images/l_8.jpg", size: 'col-span-1 row-span-1' },
+    { src: "/images/l_9.jpg", size: 'col-span-2 row-span-2' },
+    { src: "/images/l_10.jpg", size: 'col-span-2 row-span-1' },    
+    { src: "/images/l_11.jpg", size: 'col-span-2 row-span-1' }
   ];
 
   return (
@@ -196,9 +214,7 @@ const App = () => {
               Portfolio
             </motion.div>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {/* Updated navigation links */}
               {['home', 'research', 'projects', 'awards', 'mylife', 'skills', 'contact'].map((item) => (
                 <button
                   key={item}
@@ -212,7 +228,6 @@ const App = () => {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -223,7 +238,6 @@ const App = () => {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
           {isMenuOpen && (
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -250,14 +264,12 @@ const App = () => {
   className="min-h-[calc(100vh-80px)] flex items-center justify-center relative py-12"
 >
   <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 md:flex md:items-center md:gap-16">
-    {/* Profile Picture on the left */}
     <motion.div
       initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8 }}
       className="flex-shrink-0 mb-12 md:mb-0"
     >
-      {/* Updated to a more realistic placeholder to represent a real photo */}
       <img
         src="/images/profile-picture.jpg"
         alt="Profile"
@@ -265,7 +277,6 @@ const App = () => {
       />
     </motion.div>
 
-    {/* Name and descriptions on the right */}
     <motion.div
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
@@ -294,7 +305,6 @@ const App = () => {
       <p className="text-base sm:text-lg text-gray-500 mb-6 max-w-xl mx-auto md:mx-0">
         Seoul, Korea
       </p>
-      {/* About Me description */}
       <div className="space-y-4 text-gray-700 max-w-2xl mx-auto md:mx-0 mb-8">
         <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
           I'm a passionate IT graduate from Seoul, Korea, specializing in game development and real-time graphics programming.
@@ -497,7 +507,7 @@ const App = () => {
         </div>
       </section>
       
-      {/* My Life Section - The new image collage section */}
+      {/* My Life Section */}
       <section id="mylife" className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -524,6 +534,8 @@ const App = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, rotate: (index % 2 === 0 ? 3 : -3) }}
                 className={`relative overflow-hidden rounded-2xl shadow-xl border border-gray-300/50 cursor-pointer ${image.size}`}
+                // MODIFIED: Added onClick to open the modal
+                onClick={() => setSelectedImage(image.src)}
               >
                 <img
                   src={image.src}
@@ -673,9 +685,42 @@ const App = () => {
           </div>
         </div>
       </footer>
+
+      {/* NEW: Image Modal Component */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 cursor-pointer"
+          >
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 25 }}
+              className="relative"
+            >
+              <img
+                src={selectedImage}
+                alt="Enlarged view"
+                className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+              />
+              <motion.button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-4 -right-4 bg-white text-gray-800 rounded-full p-2"
+                whileHover={{ scale: 1.1, rotate: 90 }}
+              >
+                <X className="w-6 h-6" />
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 export default App;
-
