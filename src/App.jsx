@@ -47,8 +47,7 @@ const App = () => {
       title: "Aura",
       description: "Mobile application that renders 3D visual graphics from user-input data, visualizing complex datasets.",
       technologies: ["Python", "C++", "Socket Networking", "Oculus Rift"],
-      image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Metaverse+Platform",
-      github: "#",
+      image: "/images/aura.png",
       live: "#"
     },
     {
@@ -56,17 +55,15 @@ const App = () => {
       title: "This is Home Now",
       description: "3D open-world zombie survival game, architecting a rendering pipeline optimized for displaying massive-scale environments.",
       technologies: ["Unity", "C#"],
-      image: "https://placehold.co/600x400/1a1a1a/ffffff?text=AI+Assistant",
-      github: "#",
-      live: "#"
+      image: "images/Poster_3_2.png",
+      live: "https://youtu.be/4M68coRySzk"
     },
     {
       id: 3,
       title: "Motion Matching using Unity",
       description: "Augmented reality application for iOS and Android that overlays digital information onto the real world.",
       technologies: ["Unity", "C#", "Python", "OpenGL", "C++"],
-      image: "https://placehold.co/600x400/1a1a1a/ffffff?text=AR+Shopping",
-      github: "#",
+      image: "images/motion.png",
       live: "#"
     },
     {
@@ -74,9 +71,8 @@ const App = () => {
       title: "Rhythm Battle",
       description: "2-Player Multiplayer Rhythmgame made with Photon integration",
       technologies: ["Unity", "C#", "Photon"],
-      image: "https://placehold.co/600x400/1a1a1a/ffffff?text=AR+Shopping",
-      github: "#",
-      live: "#"
+      image: "images/rhythm_2.png",
+      live: "https://youtu.be/78dtfo_3HZg"
     }
   ];
 
@@ -313,8 +309,8 @@ const App = () => {
         </p>
         <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
           My academic journey has equipped me with strong foundations in C++, C#, and Python, allowing me to
-          tackle complex technical challenges across multiple domains. I'm particularly interested in VR/AR
-          technologies and performance optimization.
+          tackle complex technical challenges across multiple domains. I'm Currently pioneering new techniques through 3D graphics research, 
+          eagerly contributing to innovative software development in a professional setting.
         </p>
       </div>
       <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -442,13 +438,6 @@ const App = () => {
                     ))}
                   </div>
                   <div className="flex gap-4">
-                    <a
-                      href={project.github}
-                      className="flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                      Code
-                    </a>
                     <a
                       href={project.live}
                       className="flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors"
@@ -614,7 +603,7 @@ const App = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <motion.a
-              href="mailto:yongjoo.kwon@example.com"
+              href="mailto:yongjookwon99@gmail.com"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -626,11 +615,11 @@ const App = () => {
                 <Mail className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold mb-2">Email</h3>
-              <p className="text-gray-600">yongjoo.kwon@example.com</p>
+              <p className="text-gray-600">yongjookwon99@gmail.com</p>
             </motion.a>
 
             <motion.a
-              href="#"
+              href="https://www.linkedin.com/in/%EC%9A%A9%EC%A3%BC-%EA%B6%8C-901087311"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -642,11 +631,11 @@ const App = () => {
                 <Linkedin className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold mb-2">LinkedIn</h3>
-              <p className="text-gray-600">linkedin.com/in/yongjookwon</p>
+              <p className="text-gray-600">linkedin.com/yongjookwon/</p>
             </motion.a>
 
             <motion.a
-              href="#"
+              href="github.com/Pangpangju"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -658,7 +647,7 @@ const App = () => {
                 <Github className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold mb-2">GitHub</h3>
-              <p className="text-gray-600">github.com/yongjookwon</p>
+              <p className="text-gray-600">github.com/Pangpangju</p>
             </motion.a>
           </div>
         </div>
