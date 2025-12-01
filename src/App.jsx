@@ -73,6 +73,14 @@ const App = () => {
       technologies: ["Unity", "C#", "Photon"],
       image: "images/rhythm_2.png",
       live: "https://youtu.be/78dtfo_3HZg"
+    },
+    {
+      id: 5,
+      title: "Shiba Haru",
+      description: "Officially published webtoon series on Naver Webtoon. Authored the narrative and scripts for 46 episodes, achieving over 710k total views.",
+      technologies: ["Narrative Design", "Storytelling", "Script Writing", "Creative Direction"],
+      image: "images/shiba.png",
+      live: "https://comic.naver.com/bestChallenge/list?titleId=738712"
     }
   ];
 
@@ -80,26 +88,26 @@ const App = () => {
     {
       id: 1,
       title: "A Research on High School Students' Recognition of Using AI-Based Student Assessment Tools",
-      description: "Recognized for groundbreaking research in real-time rendering optimization",
-      technologies: ["Rendering", "Optimization", "GPU", "C++"],
+      description: "Investigated the correlation between student trust and AI-driven assessment feedback. Analyzed survey data from high school demographics to determine how algorithmic transparency affects learning motivation and acceptance of automated grading systems.",
+      technologies: ["EdTech", "Data Analysis", "AI Ethics", "Survey Analytics"],
       image: "/images/highSchool.png",
       paperUrl: "paper/HighShool.pdf"
     },
     {
       id: 2,
       title: "Enabling Computer Education through Gaming Factors : A Case Study on Improving Learning Efficiency",
-      description: "Recognized for groundbreaking research in real-time rendering optimization",
-      technologies: ["Rendering", "Optimization", "GPU", "C++"],
+      description: "A case study exploring the application of game mechanics to computer science curricula.",
+      technologies: ["Gamification", "Pedagogy", "Game Mechanics", "Learning Analytics"],
       image: "images/gamification.png",
       paperUrl: "paper/Gamification.pdf"
     },
     {
       id: 3,
       title: "Outstanding Research Award",
-      description: "Recognized for groundbreaking research in real-time rendering optimization",
-      technologies: ["Rendering", "Optimization", "GPU", "C++"],
-      image: "https://placehold.co/600x400/1a1a1a/ffffff?text=Research+Paper",
-      paperUrl: "#"
+      description: "Grand Prize winning research based on the 'This is Our Home Now' project. Architected a custom rendering pipeline utilizing GPU Instancing and Multithreading to render over 10,000 dynamic entities in real-time, solving critical CPU bottlenecks in open-world environments.",
+      technologies: ["Unity", "C#", "GPU Instancing", "Multithreading", "HLSL"],
+      image: "images/ZA.png",
+      paperUrl: "paper/ZA.pdf"
     }
   ];
 
@@ -107,9 +115,9 @@ const App = () => {
     { name: "Python", level: 95 },
     { name: "C++", level: 90 },
     { name: "C", level: 85 },
-    { name: "C#", level: 88 },
-    { name: "Unreal Engine", level: 92 },
-    { name: "Unity", level: 87 }
+    { name: "C#", level: 90 },
+    { name: "Unreal Engine", level: 75 },
+    { name: "Unity", level: 95 }
   ];
 
   const awards = [
