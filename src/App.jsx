@@ -8,6 +8,8 @@ const App = () => {
   const [activeSection, setActiveSection] = useState('home');
   // NEW: State to manage the selected image for the modal
   const [selectedImage, setSelectedImage] = useState(null);
+  // NEW: State to manage the selected video for the modal
+  const [selectedVideo, setSelectedVideo] = useState(null);
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
@@ -46,9 +48,8 @@ const App = () => {
       id: 1,
       title: "Aura",
       description: "Mobile application that renders 3D visual graphics from user-input data, visualizing complex datasets.",
-      technologies: ["Python", "C++", "Socket Networking", "Oculus Rift"],
-      image: "/images/aura.png",
-      live: "#"
+      technologies: ["Python", "C++", "Socket Networking", "Hardware Integration"],
+      image: "/images/aura.png"
     },
     {
       id: 2,
@@ -64,7 +65,7 @@ const App = () => {
       description: "Augmented reality application for iOS and Android that overlays digital information onto the real world.",
       technologies: ["Unity", "C#", "Python", "OpenGL", "C++"],
       image: "images/motion.png",
-      live: "#"
+      live: "/images/motionmatch.mp4"
     },
     {
       id: 4,
@@ -453,13 +454,23 @@ const App = () => {
                     ))}
                   </div>
                   <div className="flex gap-4">
-                    <a
-                      href={project.live}
-                      className="flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Demo
-                    </a>
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        onClick={(e) => {
+                          if (project.live.endsWith('.mp4')) {
+                            e.preventDefault();
+                            setSelectedVideo(project.live);
+                          }
+                        }}
+                        className="flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors"
+                        target={project.live.endsWith('.mp4') ? "_self" : "_blank"}
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -715,6 +726,42 @@ const App = () => {
               <motion.button
                 onClick={() => setSelectedImage(null)}
                 className="absolute -top-4 -right-4 bg-white text-gray-800 rounded-full p-2"
+                whileHover={{ scale: 1.1, rotate: 90 }}
+              >
+                <X className="w-6 h-6" />
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* NEW: Video Modal Component */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedVideo(null)}
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 cursor-pointer"
+          >
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.5, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 25 }}
+              className="relative w-full max-w-4xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <video
+                src={selectedVideo}
+                controls
+                autoPlay
+                className="w-full h-auto rounded-lg shadow-2xl"
+              />
+              <motion.button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute -top-12 right-0 bg-white text-gray-800 rounded-full p-2"
                 whileHover={{ scale: 1.1, rotate: 90 }}
               >
                 <X className="w-6 h-6" />
