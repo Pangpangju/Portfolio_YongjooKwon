@@ -108,6 +108,14 @@ const App = () => {
       technologies: ["Unity", "C#", "GPU Instancing", "Multithreading", "HLSL"],
       image: "images/ZA.png",
       paperUrl: "paper/ZA.pdf"
+    },
+    {
+      id: 3,
+      title: "Neural Holodeck: Real-Time Sim-to-Real Environment Generation via Seamless Latent Diffusion",
+      description: "Real-time Sim-to-Real pipeline that transforms low-poly Unity blockouts into seamless, photorealistic 360° environments by using semantic geometry to strictly control a latent diffusion model.",
+      technologies: ["Unity", "C#", "Python", "Rendering", "Computer Vision", "Neural Network", "Machine Learning"],
+      image: "images/Neural.png",
+      paperUrl: "paper/Neural.pdf"
     }
   ];
 
@@ -168,7 +176,7 @@ const App = () => {
 
     return <div className="fixed inset-0 pointer-events-none z-0">{particles}</div>;
   };
-  
+
   const myLifeImages = [
     { src: "/images/l_1.jpg", size: 'col-span-2 row-span-2' },
     { src: "/images/l_2.jpg", size: 'col-span-1 row-span-1' },
@@ -179,7 +187,7 @@ const App = () => {
     { src: "/images/l_7.jpg", size: 'col-span-2 row-span-1' },
     { src: "/images/l_8.jpg", size: 'col-span-1 row-span-1' },
     { src: "/images/l_9.jpg", size: 'col-span-2 row-span-2' },
-    { src: "/images/l_10.jpg", size: 'col-span-2 row-span-1' },    
+    { src: "/images/l_10.jpg", size: 'col-span-2 row-span-1' },
     { src: "/images/l_11.jpg", size: 'col-span-2 row-span-1' }
   ];
 
@@ -223,9 +231,8 @@ const App = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className={`capitalize hover:text-blue-600 transition-colors text-lg font-semibold ${
-                    activeSection === item ? 'text-blue-600' : 'text-gray-600'
-                  }`}
+                  className={`capitalize hover:text-blue-600 transition-colors text-lg font-semibold ${activeSection === item ? 'text-blue-600' : 'text-gray-600'
+                    }`}
                 >
                   {item}
                 </button>
@@ -262,87 +269,87 @@ const App = () => {
         </div>
       </nav>
 
-{/* Hero Section */}
-<section
-  id="home"
-  className="min-h-[calc(100vh-80px)] flex items-center justify-center relative py-12"
->
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 md:flex md:items-center md:gap-16">
-    <motion.div
-      initial={{ opacity: 0, x: -30 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}
-      className="flex-shrink-0 mb-12 md:mb-0"
-    >
-      <img
-        src="/images/profile-picture.jpg"
-        alt="Profile"
-        className="rounded-2xl w-80 h-96 sm:w-96 sm:h-[28rem] lg:w-[26rem] lg:h-[32rem] mx-auto md:mx-0 shadow-2xl object-cover"
-      />
-    </motion.div>
-
-    <motion.div
-      initial={{ opacity: 0, x: 30 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}
-      className="flex-1 text-center md:text-left"
-    >
-      <motion.h1
-        className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-normal pb-2"
-        animate={{
-          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-        }}
-        transition={{ duration: 3, repeat: Infinity }}
-        style={{
-          background: "linear-gradient(90deg, #1d4ed8, #6d28d9, #be185d, #1d4ed8)",
-          backgroundSize: "300% 300%",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-        }}
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="min-h-[calc(100vh-80px)] flex items-center justify-center relative py-12"
       >
-        Yong Joo Kwon
-      </motion.h1>
-      <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 mb-2 max-w-2xl mx-auto md:mx-0">
-        Graduate IT Student & Game Developer
-      </p>
-      <p className="text-base sm:text-lg text-gray-500 mb-6 max-w-xl mx-auto md:mx-0">
-        Seoul, Korea
-      </p>
-      <div className="space-y-4 text-gray-700 max-w-2xl mx-auto md:mx-0 mb-8">
-        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
-          I'm a passionate IT graduate from Seoul, Korea, specializing in game development and real-time graphics programming.
-          With expertise in both Unreal Engine and Unity, I create immersive experiences that push the boundaries
-          of interactive entertainment.
-        </p>
-        <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
-          My academic journey has equipped me with strong foundations in C++, C#, and Python, allowing me to
-          tackle complex technical challenges across multiple domains. I'm Currently pioneering new techniques through 3D graphics research, 
-          eagerly contributing to innovative software development in a professional setting.
-        </p>
-      </div>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => scrollToSection('research')}
-          className="bg-gradient-to-r from-blue-600 to-purple-800 hover:from-blue-700 hover:to-purple-900 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg text-white text-sm sm:text-base"
-        >
-          View My Work
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => scrollToSection('contact')}
-          className="border-2 border-gray-400 hover:border-blue-600 px-6 py-3 rounded-full font-semibold transition-all duration-300 text-gray-800 text-sm sm:text-base"
-        >
-          Get In Touch
-        </motion.button>
-      </div>
-    </motion.div>
-  </div>
-</section>
-      
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 md:flex md:items-center md:gap-16">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-shrink-0 mb-12 md:mb-0"
+          >
+            <img
+              src="/images/profile-picture.jpg"
+              alt="Profile"
+              className="rounded-2xl w-80 h-96 sm:w-96 sm:h-[28rem] lg:w-[26rem] lg:h-[32rem] mx-auto md:mx-0 shadow-2xl object-cover"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 text-center md:text-left"
+          >
+            <motion.h1
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 leading-normal pb-2"
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+              style={{
+                background: "linear-gradient(90deg, #1d4ed8, #6d28d9, #be185d, #1d4ed8)",
+                backgroundSize: "300% 300%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Yong Joo Kwon
+            </motion.h1>
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 mb-2 max-w-2xl mx-auto md:mx-0">
+              Graduate IT Student & Game Developer
+            </p>
+            <p className="text-base sm:text-lg text-gray-500 mb-6 max-w-xl mx-auto md:mx-0">
+              Seoul, Korea
+            </p>
+            <div className="space-y-4 text-gray-700 max-w-2xl mx-auto md:mx-0 mb-8">
+              <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
+                I'm a passionate IT graduate from Seoul, Korea, specializing in game development and real-time graphics programming.
+                With expertise in both Unreal Engine and Unity, I create immersive experiences that push the boundaries
+                of interactive entertainment.
+              </p>
+              <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
+                My academic journey has equipped me with strong foundations in C++, C#, and Python, allowing me to
+                tackle complex technical challenges across multiple domains. I'm Currently pioneering new techniques through 3D graphics research,
+                eagerly contributing to innovative software development in a professional setting.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('research')}
+                className="bg-gradient-to-r from-blue-600 to-purple-800 hover:from-blue-700 hover:to-purple-900 px-6 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg text-white text-sm sm:text-base"
+              >
+                View My Work
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => scrollToSection('contact')}
+                className="border-2 border-gray-400 hover:border-blue-600 px-6 py-3 rounded-full font-semibold transition-all duration-300 text-gray-800 text-sm sm:text-base"
+              >
+                Get In Touch
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Research Section */}
       <section id="research" className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -503,7 +510,7 @@ const App = () => {
           </div>
         </div>
       </section>
-      
+
       {/* My Life Section */}
       <section id="mylife" className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
