@@ -634,7 +634,7 @@ const App = () => {
             </motion.a>
 
             <motion.a
-              href="https://www.linkedin.com/in/%EC%9A%A9%EC%A3%BC-%EA%B6%8C-901087311"
+              href="https://www.linkedin.com/in/yongjoo-kwon-901087311/"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -646,11 +646,11 @@ const App = () => {
                 <Linkedin className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold mb-2">LinkedIn</h3>
-              <p className="text-gray-600">linkedin.com/yongjookwon/</p>
+              <p className="text-gray-600">linkedin.com/</p>
             </motion.a>
 
             <motion.a
-              href="github.com/Pangpangju"
+              href="https://github.com/Pangpangju"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -662,7 +662,7 @@ const App = () => {
                 <Github className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold mb-2">GitHub</h3>
-              <p className="text-gray-600">github.com/Pangpangju</p>
+              <p className="text-gray-600">github.com/</p>
             </motion.a>
           </div>
         </div>
