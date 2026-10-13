@@ -312,21 +312,21 @@ const App = () => {
               Yong Joo Kwon
             </motion.h1>
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 mb-2 max-w-2xl mx-auto md:mx-0">
-              Graduate IT Student & Game Developer
+              M.S.E. in Computer Graphics & Game Technology @ UPenn
             </p>
             <p className="text-base sm:text-lg text-gray-500 mb-6 max-w-xl mx-auto md:mx-0">
-              Seoul, Korea
+              Philadelphia, PA
             </p>
             <div className="space-y-4 text-gray-700 max-w-2xl mx-auto md:mx-0 mb-8">
               <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
-                I'm a passionate IT graduate from Seoul, Korea, specializing in game development and real-time graphics programming.
-                With expertise in both Unreal Engine and Unity, I create immersive experiences that push the boundaries
-                of interactive entertainment.
+                I'm a Master's student in Computer Graphics & Game Technology (CGGT) at the University of Pennsylvania,
+                specializing in game development and real-time graphics programming. With expertise in both Unreal Engine
+                and Unity, I create immersive experiences that push the boundaries of interactive entertainment.
               </p>
               <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
-                My academic journey has equipped me with strong foundations in C++, C#, and Python, allowing me to
-                tackle complex technical challenges across multiple domains. I'm Currently pioneering new techniques through 3D graphics research,
-                eagerly contributing to innovative software development in a professional setting.
+                My academic and research journey has equipped me with strong foundations in C++, C#, and Python, allowing me to
+                tackle complex technical challenges across rendering, simulation, and interactive systems. I'm passionate about
+                pioneering new techniques in 3D graphics and bringing innovative software and games to life.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
